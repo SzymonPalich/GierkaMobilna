@@ -21,10 +21,9 @@ public class RotationMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentRotation = GetRotation();
-        if (abs(currentRotation) > tiltDeadZone)
+        if (Abs(Input.acceleration.x) > tiltDeadZone)
         {
-            transform.Rotate(0, 0, currentRotation);
+            transform.Rotate(0, 0, GetRotation());
         }
     }
 
@@ -32,7 +31,7 @@ public class RotationMovement : MonoBehaviour
     {
         GUI.skin.label.fontSize = Screen.width / 40;
         GUILayout.Label("GyroDebug");
-        GUILayout.Label("Rotation: " + GetRotation());
+        GUILayout.Label("Rotation: " + Input.acceleration.x);
         GUILayout.Label("Speed: " + rigidbody2d.velocity);
         // GUILayout.Label("Speed(rel): " + );
     }
@@ -42,7 +41,7 @@ public class RotationMovement : MonoBehaviour
         return -(Input.acceleration.x * rotationSpeed);
     }
 
-    protected float abs(float value)
+    protected float Abs(float value)
     {
         return (value > 0) ? value : -value;
     }
