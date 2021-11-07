@@ -12,6 +12,11 @@ public class Collision : MonoBehaviour
         {
             Debug.Log("OnTriggerEnter2D");
         }
+        if (col.tag == "Finish")
+        {
+            Debug.Log("Finish");
+        }
+
     }
 
     void Start()
