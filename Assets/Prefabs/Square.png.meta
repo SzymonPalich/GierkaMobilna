@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c04af0ad39d05144db5537e1865997fd
+guid: 7c61001b95626914c874db08378ecf2b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3625043607559282579
-    second: Isometric Diamond
+      213: 7482667652216324306
+    second: Square
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -35,7 +35,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -50,7 +50,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 256
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 4, y: 4, z: 4, w: 4}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -118,44 +118,32 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Isometric Diamond
+      name: Square
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 256
-        height: 128
+        height: 256
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -6, y: 64}
-        - {x: -128, y: 3}
-        - {x: -128, y: -3}
-        - {x: -6, y: -64}
-        - {x: 6, y: -64}
-        - {x: 128, y: -3}
-        - {x: 128, y: 3}
-        - {x: 6, y: 64}
+      outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39f1fdb64fdbe4230800000000000000
-      internalID: 3625043607559282579
+      spriteID: 2d009a6b596c7d760800000000000000
+      internalID: 7482667652216324306
       vertices: []
       indices: 
       edges: []
       weights: []
-    outline:
-    - - {x: -6, y: 64}
-      - {x: -128, y: 3}
-      - {x: -128, y: -3}
-      - {x: -6, y: -64}
-      - {x: 6, y: -64}
-      - {x: 128, y: -3}
-      - {x: 128, y: 3}
-      - {x: 6, y: 64}
-    physicsShape: []
+    outline: []
+    physicsShape:
+    - - {x: -128, y: 128}
+      - {x: -128, y: -128}
+      - {x: 128, y: -128}
+      - {x: 128, y: 128}
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
