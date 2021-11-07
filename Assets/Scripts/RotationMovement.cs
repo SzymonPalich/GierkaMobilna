@@ -9,7 +9,6 @@ public class RotationMovement : MonoBehaviour
     public float tiltDeadZone = 1.2f;
     // Start is called before the first frame update
 
-    protected float currentRotation;
     void Start()
     {
         if (SystemInfo.supportsGyroscope)
@@ -23,8 +22,10 @@ public class RotationMovement : MonoBehaviour
     {
         if (Abs(Input.acceleration.x) > tiltDeadZone)
         {
-            transform.Rotate(0, 0, GetRotation());
+            // transform.Rotate(0, 0, GetRotation());
+            rigidbody2d.AddTorque(GetRotation() * rotationSpeed);
         }
+        // RotationSlowdown();
     }
 
     protected void OnGUI()
@@ -33,6 +34,7 @@ public class RotationMovement : MonoBehaviour
         GUILayout.Label("GyroDebug");
         GUILayout.Label("Rotation: " + Input.acceleration.x);
         GUILayout.Label("Speed: " + rigidbody2d.velocity);
+        GUILayout.Label("Angular: " + rigidbody2d.angularVelocity);
         // GUILayout.Label("Speed(rel): " + );
     }
 
