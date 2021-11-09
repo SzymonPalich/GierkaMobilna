@@ -10,6 +10,7 @@ public class Collision : MonoBehaviour
     {
         if (col.tag == "Hurt")
         {
+            Handheld.Vibrate();
             Debug.Log("OnTriggerEnter2D");
         }
         if (col.tag == "Finish")
