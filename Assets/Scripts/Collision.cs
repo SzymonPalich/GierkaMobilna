@@ -5,29 +5,24 @@ using UnityEngine;
 public class Collision : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject EndingMenu;
+    private LevelEnding levelEnding;
+
+    private void Start()
+    {
+        GameObject canvas = GameObject.Find("Canvas");
+        levelEnding = canvas.GetComponent<LevelEnding>();
+    }
 
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag == "Hurt")
         {
             Handheld.Vibrate();
-            Debug.Log("OnTriggerEnter2D");
         }
         if (col.tag == "Finish")
         {
-            Debug.Log("Finish");
+            levelEnding.ShowMenu();
         }
-
-    }
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
