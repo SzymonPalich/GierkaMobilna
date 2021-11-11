@@ -20,12 +20,17 @@ public class Collision : MonoBehaviour
     {
         if (col.tag == "Hurt")
         {
-            player.TakeDamage(100);
+            player.TakeDamageCollison();
             Handheld.Vibrate();
         }
-        if (col.tag == "Finish")
+        else if (col.tag == "Finish")
         {
             levelEnding.ShowMenu();
+        }
+        else if (col.tag == "Enemy")
+        {
+            Destroy(col.transform.parent.gameObject);
+            player.TakeDamage(50);
         }
     }
 }

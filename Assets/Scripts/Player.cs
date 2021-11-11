@@ -48,10 +48,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        float calculatedDamage = (Abs(playerBody.velocity.x) + Abs(playerBody.velocity.y)) * damageMultiplier;
-        int damageDealt = (calculatedDamage > minDamage) ? (int) calculatedDamage : 0;
-
-        if (CurrentHealth - damageDealt <= 0)
+        if (CurrentHealth - damage <= 0)
         {
             CurrentHealth = 0;
             health.SetHealth(CurrentHealth);
@@ -60,9 +57,18 @@ public class Player : MonoBehaviour
         }
         else
         {
-            CurrentHealth -= damageDealt;
+            CurrentHealth -= damage;
             health.SetHealth(CurrentHealth);
         }
+    }
+
+
+    public void TakeDamageCollison()
+    {
+        float calculatedDamage = (Abs(playerBody.velocity.x) + Abs(playerBody.velocity.y)) * damageMultiplier;
+        int damageDealt = (calculatedDamage > minDamage) ? (int) calculatedDamage : 0;
+
+        TakeDamage(damageDealt);
     }
 
     public void DrainOxygen()

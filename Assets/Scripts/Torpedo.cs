@@ -14,7 +14,7 @@ public class Torpedo : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Hurt")
+        if (col.tag == "Hurt" || col.tag == "Enemy")
             Destroy(gameObject);
     }
 }
