@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
-    public Rigidbody2D PlayerRB;
+    private Rigidbody2D PlayerRB;
     public GameObject torpedo;
     public JoyButton joyButton;
 
     private float nextActionTime = 0.0f;
-    private readonly float period = 2.0f;
+    private readonly float period = 1.0f;
 
     void Start()
     {

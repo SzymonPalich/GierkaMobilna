@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   torpedoRB: {fileID: 0}
-  Force: 8
+  Force: 12
 --- !u!50 &6083516521868999590
 Rigidbody2D:
   serializedVersion: 4

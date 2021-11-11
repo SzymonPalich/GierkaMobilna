@@ -5,7 +5,7 @@ using UnityEngine;
 public class Torpedo : MonoBehaviour
 {
     public Rigidbody2D torpedoRB;
-    public float Force = 8.0f;
+    public float Force = 12.0f;
     void Start()
     {
         torpedoRB = gameObject.GetComponent<Rigidbody2D>();

@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
     {
         if (CurrentOxygen - 1 <= 0)
         {
-            CurrentOxygen = 1;
+            CurrentOxygen = 0;
             oxygen.SetOxygen(CurrentOxygen);
             levelEnding.setGameOver();
             levelEnding.ShowMenu();
