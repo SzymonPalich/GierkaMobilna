@@ -31,7 +31,7 @@ public class RotationMovement : MonoBehaviour
     protected void OnGUI()
     {
         GUI.skin.label.fontSize = Screen.width / 40;
-        GUILayout.Label("GyroDebug");
+        GUILayout.Label("Gyro DEB‹‹‹G :D :D");
         GUILayout.Label("Rotation: " + Input.acceleration.x);
         GUILayout.Label("Speed: " + rigidbody2d.velocity);
         GUILayout.Label("Angular: " + rigidbody2d.angularVelocity);
