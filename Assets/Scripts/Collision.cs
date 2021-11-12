@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Collision : MonoBehaviour
 {
-    // Start is called before the first frame update
     public GameObject EndingMenu;
     private LevelEnding levelEnding;
     private Player player;
+    private bool damageCooldown = false;
+    private float cooldown = 1.0f;
 
     private void Start()
     {
@@ -27,10 +28,23 @@ public class Collision : MonoBehaviour
         {
             levelEnding.ShowMenu();
         }
-        else if (col.tag == "Enemy")
+        else if (col.tag == "Enemy" && !damageCooldown)
         {
             Destroy(col.transform.parent.gameObject);
             player.TakeDamage(50);
+            StartCoroutine(DamageCooldown(cooldown));
         }
+        else if (col.tag == "AngryFish" && !damageCooldown)
+        {
+            player.TakeDamage(30);
+            StartCoroutine(DamageCooldown(cooldown));
+        }
+    }
+
+    IEnumerator DamageCooldown(float cooldown)
+    {
+        damageCooldown = true;
+        yield return new WaitForSeconds(cooldown);
+        damageCooldown = false;
     }
 }
