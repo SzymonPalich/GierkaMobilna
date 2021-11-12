@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Mine : MonoBehaviour
@@ -35,5 +34,4 @@ public class Mine : MonoBehaviour
         yield return new WaitForSeconds(time);
         MineSpriteRenderer.sprite = mineNormalSprite;
     }
-
 }

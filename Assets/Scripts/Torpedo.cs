@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Torpedo : MonoBehaviour
 {
-    public Rigidbody2D torpedoRB;
+    private Rigidbody2D torpedoRB;
     public float Force = 12.0f;
     void Start()
     {
-        torpedoRB = gameObject.GetComponent<Rigidbody2D>();
+        torpedoRB = GetComponent<Rigidbody2D>();
         torpedoRB.AddRelativeForce(new Vector2(0.0f, Force));
     }
 

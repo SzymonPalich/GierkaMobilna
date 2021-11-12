@@ -1,20 +1,16 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Collision : MonoBehaviour
 {
-    public GameObject EndingMenu;
-    private LevelEnding levelEnding;
     private Player player;
+
     private bool damageCooldown = false;
-    private float cooldown = 1.0f;
+    private readonly float cooldown = 1.0f;
 
     private void Start()
     {
-        GameObject canvas = GameObject.Find("Canvas");
-        levelEnding = canvas.GetComponent<LevelEnding>();
-        player = gameObject.GetComponent<Player>();
+        player = GetComponent<Player>();
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -26,7 +22,7 @@ public class Collision : MonoBehaviour
         }
         else if (col.tag == "Finish")
         {
-            levelEnding.ShowMenu();
+            player.GameMenus.ShowLevelEndUI();
         }
         else if (col.tag == "Enemy" && !damageCooldown)
         {

@@ -34,5 +34,4 @@ public class Fish : MonoBehaviour
         yield return new WaitForSeconds(time);
         FishSpriteRenderer.sprite = fishNormalSprite;
     }
-
 }

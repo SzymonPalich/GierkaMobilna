@@ -28,7 +28,6 @@ public class Flare : MonoBehaviour
         flareLight.pointLightOuterRadius = outerRadiusMin;
     }
 
-    // Update is called once per frame
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag == "Player")

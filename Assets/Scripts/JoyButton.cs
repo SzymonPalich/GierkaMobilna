@@ -5,8 +5,7 @@ using UnityEngine.EventSystems;
 
 public class JoyButton : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
-    // Start is called before the first frame update
-    public bool Pressed;
+    public bool Pressed = false;
 
     public void OnPointerDown(PointerEventData eventData)
     {

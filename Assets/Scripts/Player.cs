@@ -1,16 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     public int maxHealth = 100;
-    private int CurrentHealth;
     public int maxOxygen = 100;
+
+    private int CurrentHealth;
     private int CurrentOxygen;
 
     public float damageMultiplier = 4.0f;
     public float minDamage = 2.0f;
+
     private Rigidbody2D playerBody;
 
     public Health health;
@@ -19,13 +19,14 @@ public class Player : MonoBehaviour
     private float nextActionTime = 0.0f;
     private readonly float period = 1.0f;
 
-    public GameObject levelEndingComponent;
-    private LevelEnding levelEnding;
+    public GameObject UIComponent;
+    private GameMenus gameMenus;
+    public GameMenus GameMenus { get; }
 
     void Start()
     {
-        playerBody = gameObject.GetComponent<Rigidbody2D>();
-        levelEnding = levelEndingComponent.GetComponent<LevelEnding>();
+        playerBody = GetComponent<Rigidbody2D>();
+        gameMenus = UIComponent.GetComponent<GameMenus>();
 
         CurrentHealth = maxHealth;
         health.SetMaxHealth(maxHealth);
@@ -36,7 +37,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (!levelEnding.GameOverCheck)
+        if (!gameMenus.IsPaused)
         {
             if (Time.timeSinceLevelLoad > nextActionTime)
             {
@@ -52,8 +53,7 @@ public class Player : MonoBehaviour
         {
             CurrentHealth = 0;
             health.SetHealth(CurrentHealth);
-            levelEnding.setGameOver();
-            levelEnding.ShowMenu();
+            gameMenus.ShowGameOver();
         }
         else
         {
@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
     public void TakeDamageCollison()
     {
         float calculatedDamage = (Abs(playerBody.velocity.x) + Abs(playerBody.velocity.y)) * damageMultiplier;
-        int damageDealt = (calculatedDamage > minDamage) ? (int) calculatedDamage : 0;
+        int damageDealt = (calculatedDamage > minDamage) ? (int)calculatedDamage : 0;
 
         TakeDamage(damageDealt);
     }
@@ -77,9 +77,7 @@ public class Player : MonoBehaviour
         {
             CurrentOxygen = 0;
             oxygen.SetOxygen(CurrentOxygen);
-            levelEnding.setGameOver();
-            levelEnding.ShowMenu();
-
+            gameMenus.ShowGameOver();
         }
         else
         {
