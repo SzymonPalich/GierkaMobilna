@@ -32,9 +32,9 @@ public class GameMenus : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (IsPaused)
-                Resume();
+                HidePauseMenu();
             else
-                Pause();
+                ShowPauseMenu();
         }
     }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 public class Collision : MonoBehaviour
 {
     private Player player;
+    public GameMenus gameMenus;
 
     private bool damageCooldown = false;
     private readonly float cooldown = 1.0f;
@@ -22,7 +23,7 @@ public class Collision : MonoBehaviour
         }
         else if (col.tag == "Finish")
         {
-            player.GameMenus.ShowLevelEndUI();
+            gameMenus.ShowLevelEndUI();
         }
         else if (col.tag == "Enemy" && !damageCooldown)
         {

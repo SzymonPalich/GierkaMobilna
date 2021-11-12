@@ -527,7 +527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   maxOxygen: 100
-  damageMultiplier: 4
+  damageMultiplier: 5
   minDamage: 2
   health: {fileID: 0}
   oxygen: {fileID: 0}

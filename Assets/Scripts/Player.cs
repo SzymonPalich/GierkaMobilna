@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     private int CurrentHealth;
     private int CurrentOxygen;
 
-    public float damageMultiplier = 4.0f;
+    public float damageMultiplier = 5.0f;
     public float minDamage = 2.0f;
 
     private Rigidbody2D playerBody;
