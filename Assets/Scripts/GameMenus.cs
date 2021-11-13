@@ -86,7 +86,11 @@ public class GameMenus : MonoBehaviour
 
     public void NextLevel()
     {
-        SceneManager.LoadScene($"Level{currentLevel + 1}");
+        int nextLevel = currentLevel + 1;
+        Saves saveManager = new Saves();
+        if (!saveManager.CheckIfCompleted(nextLevel))
+            saveManager.SetComplete(nextLevel);
+        SceneManager.LoadScene($"Level{nextLevel}");
     }
 
     public void Retry()

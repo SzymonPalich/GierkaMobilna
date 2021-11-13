@@ -5,11 +5,16 @@ public class MainMenu : MonoBehaviour
 {
     public void Play()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("LevelSelection");
     }
 
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void OpenGithubLink()
+    {
+        Application.OpenURL("https://github.com/MagicznySzymcio");
     }
 }
