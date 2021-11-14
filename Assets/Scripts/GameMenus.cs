@@ -12,6 +12,7 @@ public class GameMenus : MonoBehaviour
     public GameObject joyButton;
 
     public int currentLevel;
+    private int nextLevel;
     public bool gameEnd = false;
 
     protected bool isPaused = false;
@@ -20,7 +21,7 @@ public class GameMenus : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1f;
-
+        nextLevel = currentLevel + 1;
         pauseMenuUI.SetActive(false);
         levelEndingUI.SetActive(false);
         gameEndingUI.SetActive(false);
@@ -46,21 +47,24 @@ public class GameMenus : MonoBehaviour
 
     public void ShowLevelEndUI()
     {
+        Saves saveManager = new Saves();
+        if (!saveManager.CheckIfCompleted(nextLevel))
+            saveManager.SetComplete(nextLevel);
         Pause();
         if (gameEnd) gameEndingUI.SetActive(true);
         else levelEndingUI.SetActive(true);
 
     }
-    protected void ShowPauseMenu()
+    public void ShowPauseMenu()
     {
-        Pause();
         pauseMenuUI.SetActive(true);
+        Pause();
     }
 
-    protected void HidePauseMenu()
+    public void HidePauseMenu()
     {
-        Resume();
         pauseMenuUI.SetActive(false);
+        Resume();
     }
 
     private void Pause()
@@ -86,10 +90,6 @@ public class GameMenus : MonoBehaviour
 
     public void NextLevel()
     {
-        int nextLevel = currentLevel + 1;
-        Saves saveManager = new Saves();
-        if (!saveManager.CheckIfCompleted(nextLevel))
-            saveManager.SetComplete(nextLevel);
         SceneManager.LoadScene($"Level{nextLevel}");
     }
 
