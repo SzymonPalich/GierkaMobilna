@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class FindAndDestroy : MonoBehaviour
@@ -16,8 +17,24 @@ public class FindAndDestroy : MonoBehaviour
     {
         if (!detected && col.tag == "Player")
         {
-            detected = true;
             mineRB.AddForce((col.transform.position - transform.position) * speed);
+            StartCoroutine(DetectionCooldown());
+            StartCoroutine(Stop());
         }
     }
+
+    IEnumerator DetectionCooldown()
+    {
+        detected = true;
+        yield return new WaitForSeconds(2.0f);
+        detected = false;
+    }
+
+    IEnumerator Stop()
+    {
+        yield return new WaitForSeconds(1.0f);
+        mineRB.velocity = new Vector2(0.0f, 0.0f);
+    }
+
+
 }

@@ -13,9 +13,12 @@ public class FollowThePath : MonoBehaviour
 
     private bool direction = true;
 
+    protected SpriteRenderer spriteRenderer;
+
     private void Start()
     {
         transform.position = waypointStart.transform.position;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -34,6 +37,7 @@ public class FollowThePath : MonoBehaviour
 
         if (transform.position == waypoint.transform.position)
         {
+            spriteRenderer.flipX = direction;
             direction = !direction;
         }
     }

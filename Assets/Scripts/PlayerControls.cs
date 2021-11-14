@@ -30,7 +30,7 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         SpeedControl();
         JoystickInput();
