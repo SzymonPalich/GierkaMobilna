@@ -204,3 +204,4 @@ MonoBehaviour:
   health: 2
   fishNormalSprite: {fileID: 21300000, guid: 8e5ee0dc3a2961448ac8fad661f464e7, type: 3}
   fishDamagedSprite: {fileID: 21300000, guid: b1edda24f8dbbce4f84c43973771e60a, type: 3}
+  sounds: {fileID: 0}

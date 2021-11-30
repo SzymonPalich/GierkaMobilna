@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using System.Collections;
 using UnityEngine;
 
@@ -8,6 +9,9 @@ public class Fish : MonoBehaviour
     public Sprite fishDamagedSprite;
 
     protected SpriteRenderer FishSpriteRenderer;
+
+    public Sound sounds;
+
 
     private void Start()
     {
@@ -20,7 +24,10 @@ public class Fish : MonoBehaviour
         {
             health -= 1;
             if (health == 0)
+            {
+                sounds.PlayFishDeath();
                 Destroy(gameObject);
+            }
             else
             {
                 FishSpriteRenderer.sprite = fishDamagedSprite;

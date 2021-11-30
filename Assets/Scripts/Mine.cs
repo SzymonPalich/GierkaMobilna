@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using System.Collections;
 using UnityEngine;
 
@@ -8,6 +9,9 @@ public class Mine : MonoBehaviour
     public Sprite mineDamagedSprite;
 
     protected SpriteRenderer MineSpriteRenderer;
+
+    public Sound sounds;
+
 
     private void Start()
     {
@@ -20,7 +24,10 @@ public class Mine : MonoBehaviour
         {
             health -= 1;
             if (health == 0)
+            {
+                sounds.PlayMineExplosion();
                 Destroy(transform.parent.gameObject);
+            }
             else
             {
                 MineSpriteRenderer.sprite = mineDamagedSprite;

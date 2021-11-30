@@ -169,6 +169,7 @@ MonoBehaviour:
   health: 3
   mineNormalSprite: {fileID: 21300000, guid: 59a8e04eaf8a6ce45a817aff25bf67b3, type: 3}
   mineDamagedSprite: {fileID: 21300000, guid: 3e3f8eb82213a6c48b940da0e2f582e0, type: 3}
+  sounds: {fileID: 0}
 --- !u!1 &9034790954509185793
 GameObject:
   m_ObjectHideFlags: 0

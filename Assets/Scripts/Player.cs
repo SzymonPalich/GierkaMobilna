@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -23,6 +24,9 @@ public class Player : MonoBehaviour
     private GameMenus gameMenus;
     public GameMenus GameMenus { get; }
 
+    private AudioManager audioManager;
+    private AudioSource audioSource;
+
     void Start()
     {
         playerBody = GetComponent<Rigidbody2D>();
@@ -33,6 +37,9 @@ public class Player : MonoBehaviour
 
         CurrentOxygen = maxOxygen;
         oxygen.SetMaxOxygen(maxOxygen);
+
+        audioManager = GetComponent<AudioManager>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -53,6 +60,7 @@ public class Player : MonoBehaviour
         {
             CurrentHealth = 0;
             health.SetHealth(CurrentHealth);
+            audioSource.PlayOneShot(audioManager.playerDeath);
             gameMenus.ShowGameOver();
         }
         else
@@ -77,6 +85,7 @@ public class Player : MonoBehaviour
         {
             CurrentOxygen = 0;
             oxygen.SetOxygen(CurrentOxygen);
+            audioSource.PlayOneShot(audioManager.playerDeath);
             gameMenus.ShowGameOver();
         }
         else
