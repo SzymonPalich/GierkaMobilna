@@ -33,9 +33,13 @@ public class GameMenus : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (IsPaused)
+            {
                 HidePauseMenu();
+            }
             else
+            {
                 ShowPauseMenu();
+            }
         }
     }
 
@@ -49,11 +53,19 @@ public class GameMenus : MonoBehaviour
     {
         Saves saveManager = new Saves();
         if (!saveManager.CheckIfCompleted(nextLevel))
+        {
             saveManager.SetComplete(nextLevel);
-        Pause();
-        if (gameEnd) gameEndingUI.SetActive(true);
-        else levelEndingUI.SetActive(true);
+        }
 
+        Pause();
+        if (gameEnd)
+        {
+            gameEndingUI.SetActive(true);
+        }
+        else
+        {
+            levelEndingUI.SetActive(true);
+        }
     }
     public void ShowPauseMenu()
     {

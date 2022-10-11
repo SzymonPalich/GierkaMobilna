@@ -9,9 +9,10 @@ public class Saves
     public Saves()
     {
         filePath = Application.persistentDataPath + "/levels.save";
-        Debug.Log(filePath);
         if (!File.Exists(filePath))
+        {
             File.Create(filePath).Dispose();
+        }
     }
 
     public void SetComplete(int level)
@@ -36,8 +37,12 @@ public class Saves
     {
         List<string> completedLevels = ReturnCompleted();
         if (completedLevels.Contains($"level{level}"))
+        {
             return true;
+        }
         else
+        {
             return false;
+        }
     }
 }

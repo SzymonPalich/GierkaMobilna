@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Torpedo : MonoBehaviour
@@ -14,7 +12,9 @@ public class Torpedo : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Hurt" || col.tag == "Enemy" || col.tag == "AngryFish")
+        if (col.CompareTag("Hurt") || col.CompareTag("Enemy") || col.CompareTag("AngryFish"))
+        {
             Destroy(gameObject);
+        }
     }
 }

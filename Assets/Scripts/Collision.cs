@@ -22,26 +22,26 @@ public class Collision : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Hurt")
+        if (col.CompareTag("Hurt"))
         {
             player.TakeDamageCollison();
             Handheld.Vibrate();
             audioSource.PlayOneShot(audioManager.wallStuck);
 
         }
-        else if (col.tag == "Finish")
+        else if (col.CompareTag("Finish"))
         {
             audioSource.PlayOneShot(audioManager.levelEnd);
             gameMenus.ShowLevelEndUI();
         }
-        else if (col.tag == "Enemy" && !damageCooldown)
+        else if (col.CompareTag("Enemy") && !damageCooldown)
         {
             audioSource.PlayOneShot(audioManager.mineExplosion);
             Destroy(col.transform.parent.gameObject);
             player.TakeDamage(50);
             StartCoroutine(DamageCooldown(cooldown));
         }
-        else if (col.tag == "AngryFish" && !damageCooldown)
+        else if (col.CompareTag("AngryFish") && !damageCooldown)
         {
             audioSource.PlayOneShot(audioManager.wallStuck);
             player.TakeDamage(30);

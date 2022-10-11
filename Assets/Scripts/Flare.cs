@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -30,7 +28,7 @@ public class Flare : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Player")
+        if (col.CompareTag("Player"))
         {
             setOn = true;
             animator.SetBool("SetOn", true);
@@ -42,7 +40,7 @@ public class Flare : MonoBehaviour
         if (setOn && (flareLight.pointLightInnerRadius <= maxRadius))
         {
             flareLight.pointLightInnerRadius += radiusIncreaseSpeed;
-            flareLight.pointLightOuterRadius += (2 * radiusIncreaseSpeed);
+            flareLight.pointLightOuterRadius += 2 * radiusIncreaseSpeed;
         }
     }
 }

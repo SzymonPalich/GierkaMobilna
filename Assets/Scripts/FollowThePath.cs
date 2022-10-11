@@ -24,9 +24,13 @@ public class FollowThePath : MonoBehaviour
     private void Update()
     {
         if (direction)
+        {
             Move(waypointEnd);
+        }
         else
+        {
             Move(waypointStart);
+        }
     }
 
     private void Move(Transform waypoint)

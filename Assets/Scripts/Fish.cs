@@ -1,4 +1,3 @@
-using Assets.Scripts;
 using System.Collections;
 using UnityEngine;
 
@@ -12,7 +11,6 @@ public class Fish : MonoBehaviour
 
     public Sound sounds;
 
-
     private void Start()
     {
         FishSpriteRenderer = GetComponent<SpriteRenderer>();
@@ -20,7 +18,7 @@ public class Fish : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Torpedo")
+        if (col.CompareTag("Torpedo"))
         {
             health -= 1;
             if (health == 0)

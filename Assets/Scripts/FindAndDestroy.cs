@@ -15,7 +15,7 @@ public class FindAndDestroy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (!detected && col.tag == "Player")
+        if (!detected && col.CompareTag("Player"))
         {
             mineRB.AddForce((col.transform.position - transform.position) * speed);
             StartCoroutine(DetectionCooldown());
@@ -35,6 +35,4 @@ public class FindAndDestroy : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         mineRB.velocity = new Vector2(0.0f, 0.0f);
     }
-
-
 }

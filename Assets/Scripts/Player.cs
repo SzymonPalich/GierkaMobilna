@@ -70,7 +70,6 @@ public class Player : MonoBehaviour
         }
     }
 
-
     public void TakeDamageCollison()
     {
         float calculatedDamage = (Abs(playerBody.velocity.x) + Abs(playerBody.velocity.y)) * damageMultiplier;

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +10,9 @@ public class LevelButtons : MonoBehaviour
         for (int i = 2; i <= levelCount; i++)
         {
             if (saveManager.CheckIfCompleted(i))
-            GameObject.Find($"Level{i}").GetComponent<Button>().interactable = true;
+            {
+                GameObject.Find($"Level{i}").GetComponent<Button>().interactable = true;
+            }
         }
     }
 }

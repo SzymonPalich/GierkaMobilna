@@ -15,6 +15,6 @@ public class MainMenu : MonoBehaviour
 
     public void OpenGithubLink()
     {
-        Application.OpenURL("https://github.com/MagicznySzymcio");
+        Application.OpenURL("https://github.com/SzymonPalich");
     }
 }
