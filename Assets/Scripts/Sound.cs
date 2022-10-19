@@ -21,4 +21,9 @@ public class Sound : MonoBehaviour
     {
         audioSource.PlayOneShot(audioManager.fishDeath);
     }
+
+    public void PlayJellyFishDeath()
+    {
+        audioSource.PlayOneShot(audioManager.reeeeeee);
+    }
 }

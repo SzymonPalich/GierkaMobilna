@@ -8,6 +8,7 @@ TagManager:
   - Torpedo
   - Enemy
   - AngryFish
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX

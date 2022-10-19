@@ -47,6 +47,12 @@ public class Collision : MonoBehaviour
             player.TakeDamage(30);
             StartCoroutine(DamageCooldown(cooldown));
         }
+        else if (col.CompareTag("EnemyBullet") && !damageCooldown)
+        {
+            audioSource.PlayOneShot(audioManager.wallStuck);
+            player.TakeDamage(25);
+            StartCoroutine(DamageCooldown(cooldown));
+        }
     }
 
     IEnumerator DamageCooldown(float cooldown)

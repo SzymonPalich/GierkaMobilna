@@ -11,5 +11,6 @@ namespace Assets.Scripts
         public AudioClip levelEnd;
         public AudioClip mineExplosion;
         public AudioClip dejaVu;
+        public AudioClip reeeeeee;
     }
 }
